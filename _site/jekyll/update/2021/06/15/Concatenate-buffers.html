@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Concatenating buffers" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"/jekyll/update/2021/06/15/Concatenate-buffers.html","headline":"Concatenating buffers","dateModified":"2021-06-15T04:54:10+02:00","datePublished":"2021-06-15T04:54:10+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/update/2021/06/15/Concatenate-buffers.html"},"description":"In this post I will show you have to concatenate buffers in javascript using Uint8Array.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Concatenating buffers","dateModified":"2021-06-15T04:54:10+02:00","datePublished":"2021-06-15T04:54:10+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/update/2021/06/15/Concatenate-buffers.html"},"url":"/jekyll/update/2021/06/15/Concatenate-buffers.html","description":"In this post I will show you have to concatenate buffers in javascript using Uint8Array.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Kai Yi Ji's blog" /></head>
 <body><header class="site-header" role="banner">
@@ -56,6 +56,60 @@
 <span class="p">)</span> </code></pre></figure>
 
 <p>Notice that the function has inputBuffers which has <code class="language-plaintext highlighter-rouge">...</code> in front of it. This means the inputBuffers will be an array with all arguments in it. For example, if we call <code class="language-plaintext highlighter-rouge">concatBuffers(buffer1,buffer2,buffer3)</code> then inputBuffers will be <code class="language-plaintext highlighter-rouge">[buffer1,buffer2,buffer3]</code></p>
+
+<p>We will use javascript reduce function to sum up the bytelength that we need for the final buffer.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">Length</span> <span class="o">=</span> <span class="nx">inputBuffers</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span>
+    <span class="p">(</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">buff</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">buff</span><span class="p">.</span><span class="nx">byteLength</span><span class="p">,</span>
+    <span class="mi">0</span>
+  <span class="p">)</span></code></pre></figure>
+
+<p>This code will get the required bytelength for the buffer.</p>
+
+<p>Now we create an outputBuffer which will be an Uint8Array. We also need to define offset for next code.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">const</span> <span class="nx">outputBuffer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Uint8Array</span><span class="p">(</span><span class="nx">Length</span><span class="p">)</span>
+  <span class="kd">let</span> <span class="nx">offset</span> <span class="o">=</span> <span class="mi">0</span></code></pre></figure>
+
+<p>Finally, we use the following code.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"> <span class="nx">inputBuffers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">buff</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">ArrayBuffer</span><span class="p">.</span><span class="nx">isView</span><span class="p">(</span><span class="nx">buff</span><span class="p">))</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="p">{</span> <span class="nx">buffer</span><span class="p">,</span> <span class="nx">byteOffset</span><span class="p">,</span> <span class="nx">byteLength</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">buff</span>
+      <span class="nx">outputBuffer</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="k">new</span> <span class="nb">Uint8Array</span><span class="p">(</span><span class="nx">buffer</span><span class="p">,</span> <span class="nx">byteOffset</span><span class="p">,</span> <span class="nx">byteLength</span><span class="p">),</span> <span class="nx">offset</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">buff</span><span class="p">)</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">offset</span><span class="p">)</span>
+      <span class="nx">outputBuffer</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="k">new</span> <span class="nb">Uint8Array</span><span class="p">(</span><span class="nx">buff</span><span class="p">),</span> <span class="nx">offset</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">offset</span> <span class="o">+=</span> <span class="nx">buff</span><span class="p">.</span><span class="nx">byteLength</span>
+  <span class="p">})</span>
+   <span class="k">return</span> <span class="nx">outputBuffer</span></code></pre></figure>
+
+<p>This will iterate through inputBuffers array which we already explained. For every buffer in that array, we check if the buffer is ArrayBuffer View. If it is, then extract properties of that buffer, and set from offset. Otherwise set this buffer from offset directly. Notice that when we iterate through each buffer we increment the offset by that buffers bytelength. This is because whenever we put all elements from that buffer to our outputBuffer we need also to tell the outputBuffer to move to the index when there is not any element. Lastly, we return the outputBuffer.</p>
+
+<p>Now we have the concatenate function. Let’s test it using the following code.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">concatBuffers</span><span class="p">(</span><span class="k">new</span> <span class="nb">Uint8Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">58</span><span class="p">,</span><span class="mi">8</span><span class="p">]),</span><span class="k">new</span> <span class="nb">Uint8Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">])))</span></code></pre></figure>
+
+<p>This will give us</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">Uint8Array</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span>
+  <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span>
+<span class="p">]</span></code></pre></figure>
+
+<p>which is the concatenation of two buffers.</p>
+<hr />
+
+<h1><b>Products</b></h1>
+<div>
+    <a target="_blank" href="https://www.amazon.com/gp/product/B079JLY5M5/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B079JLY5M5&amp;linkCode=as2&amp;tag=kaijeez-20&amp;linkId=b90b1ed75f5062766c1dc2b6e7cb32f8"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;MarketPlace=US&amp;ASIN=B079JLY5M5&amp;ServiceVersion=20070822&amp;ID=AsinImage&amp;WS=1&amp;Format=_SL250_&amp;tag=kaijeez-20" /></a>
+    <br />
+<a target="_blank" href="https://www.amazon.com/gp/product/B079JLY5M5/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B079JLY5M5&amp;linkCode=as2&amp;tag=kaijeez-20&amp;linkId=ff2b9ae38b6a993a6b82029c6a9a45ec">Logitech MK270 Wireless Keyboard and Mouse Combo - Keyboard and Mouse Included, Long Battery Life</a>
+
+</div>
 
 
   </div><a class="u-url" href="/jekyll/update/2021/06/15/Concatenate-buffers.html" hidden></a>
