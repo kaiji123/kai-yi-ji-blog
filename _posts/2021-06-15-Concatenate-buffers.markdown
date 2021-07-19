@@ -71,6 +71,7 @@ Uint8Array(10) [
 
 which is the concatenation of two buffers.
 {% include amazon.html %}
+{% include comment.html%}
 
 
 

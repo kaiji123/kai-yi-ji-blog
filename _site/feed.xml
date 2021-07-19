@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-17T17:56:35+02:00</updated><id>/feed.xml</id><title type="html">Kai Yi Ji’s blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Concatenating buffers</title><link href="/jekyll/update/2021/06/15/Concatenate-buffers.html" rel="alternate" type="text/html" title="Concatenating buffers" /><published>2021-06-15T04:54:10+02:00</published><updated>2021-06-15T04:54:10+02:00</updated><id>/jekyll/update/2021/06/15/Concatenate-buffers</id><content type="html" xml:base="/jekyll/update/2021/06/15/Concatenate-buffers.html">&lt;p&gt;In this post I will show you have to concatenate buffers in javascript using Uint8Array.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-07-19T04:46:00+02:00</updated><id>/feed.xml</id><title type="html">Kai Yi Ji’s blog</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Concatenating buffers</title><link href="/jekyll/update/2021/06/15/Concatenate-buffers.html" rel="alternate" type="text/html" title="Concatenating buffers" /><published>2021-06-15T04:54:10+02:00</published><updated>2021-06-15T04:54:10+02:00</updated><id>/jekyll/update/2021/06/15/Concatenate-buffers</id><content type="html" xml:base="/jekyll/update/2021/06/15/Concatenate-buffers.html">&lt;p&gt;In this post I will show you have to concatenate buffers in javascript using Uint8Array.&lt;/p&gt;
 
 &lt;p&gt;First, we need to create a function that concatenates buffers. Let’s name it &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;concatBuffers&lt;/code&gt;.&lt;/p&gt;
 
@@ -69,4 +69,30 @@
 &lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B09761XY92/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B09761XY92&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=26ef49b081f4d52d860e0dea77512e3c&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;amp;MarketPlace=US&amp;amp;ASIN=B09761XY92&amp;amp;ServiceVersion=20070822&amp;amp;ID=AsinImage&amp;amp;WS=1&amp;amp;Format=_SL250_&amp;amp;tag=kaijeez-20&quot; /&gt;&lt;/a&gt;
 &lt;br /&gt;
 &lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B09761XY92/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B09761XY92&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=dcf847f5342828f09dc94b0c1be53e8d&quot;&gt;PS5 - Sony Playstation 5 Digital Edition Gaming Console + Wireless Controller - x86-64-AMD Ryzen Zen 8-Core, 16GB GDDR6, 825GB SSD, 120Hz 8K Output, HDR 4K TV Gaming - BROAGE 500GB External HD&lt;/a&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">In this post I will show you have to concatenate buffers in javascript using Uint8Array.</summary></entry></feed>
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;h1&gt;&lt;b&gt;Comments&lt;/b&gt;&lt;/h1&gt;
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://kaiji123-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">In this post I will show you have to concatenate buffers in javascript using Uint8Array.</summary></entry></feed>
