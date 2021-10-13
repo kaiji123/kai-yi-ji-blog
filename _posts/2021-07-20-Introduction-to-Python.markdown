@@ -22,5 +22,5 @@ This library handles most of the calculation such as matrices, vectors, eigenvec
 ## Other libraries
 There are definitely many other libraries that have important use cases. PyTorch, which is a library that you use for creating, is very popular among people who are interested in mahcine learning. Django, for example, is another popular library that web developers use for creating backend for their website. There will be more libraries creating for making programmer's task easier and this why Python has such a huge growrate these days.
 
-{% include amazon.html %}
+
 {% include comment.html%}
