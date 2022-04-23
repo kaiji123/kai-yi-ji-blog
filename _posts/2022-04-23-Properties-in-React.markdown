@@ -15,15 +15,12 @@ components as functions and not classes (in modern React). The return of each co
 ## What is a property ?
 Think property as an argument that you want to pass to components. The syntax for this should be :
 
-`
-<Component prop1={arg1} prop2={arg2}/>
-`
+`<Component prop1={arg1} prop2={arg2}/>`
 
 and to access those properties in a component
 
 {% highlight javascript %}
 function Component(props){
-
     const prop1 = props.prop1;
     const prop2 = props.prop2;
     return(
@@ -31,18 +28,21 @@ function Component(props){
         <div>
     )
 }
-{% endhighlight %}
+{% endhighlight%}
 
 
 However, sometimes it is easier to wrap all properties as a single object and pass it as a single property to the component.
-`
+
+
+{% highlight javascript %}
 let object = {
     prop1 : value1,
     prop2 : value2
 }
-
-
 <Component prop={object} />
-`
+
+{% endhighlight%}
+
+This will reduce the amount of arguments you need to pass to the component object.
 
 {% include comment.html%}

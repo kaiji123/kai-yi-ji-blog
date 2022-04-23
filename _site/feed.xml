@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-23T01:06:56+02:00</updated><id>/feed.xml</id><title type="html">Kai Yi Ji’s blog</title><subtitle>This is a blogging website where I post tech knowledge that I learnt which I want to share</subtitle><entry><title type="html">Introduction to Python</title><link href="/jekyll/update/2021/07/20/Introduction-to-Python.html" rel="alternate" type="text/html" title="Introduction to Python" /><published>2021-07-20T00:00:00+02:00</published><updated>2021-07-20T00:00:00+02:00</updated><id>/jekyll/update/2021/07/20/Introduction-to-Python</id><content type="html" xml:base="/jekyll/update/2021/07/20/Introduction-to-Python.html">&lt;h2 id=&quot;what-is-python-&quot;&gt;What is Python ?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-04-23T18:35:13+02:00</updated><id>/feed.xml</id><title type="html">Kai Yi Ji’s blog</title><subtitle>This is a blogging website where I post tech knowledge that I learnt which I want to share</subtitle><entry><title type="html">Properties in React</title><link href="/jekyll/update/2022/04/23/Properties-in-React.html" rel="alternate" type="text/html" title="Properties in React" /><published>2022-04-23T00:00:00+02:00</published><updated>2022-04-23T00:00:00+02:00</updated><id>/jekyll/update/2022/04/23/Properties-in-React</id><content type="html" xml:base="/jekyll/update/2022/04/23/Properties-in-React.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;To understand the use of properties , we first need to understand what a component in React framework.&lt;/p&gt;
+
+&lt;h2 id=&quot;components&quot;&gt;Components&lt;/h2&gt;
+&lt;p&gt;Components are reusable entities in react that enables you to manage states, define hooks and arrange code more cleanly. There are some rules such as you should define 
+components as functions and not classes (in modern React). The return of each components should be jsx elements (React version of js). Sometimes you want to pass some arguments to components from a parent and to do that we have properties.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-a-property-&quot;&gt;What is a property ?&lt;/h2&gt;
+&lt;p&gt;Think property as an argument that you want to pass to components. The syntax for this should be :&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;Component prop1={arg1} prop2={arg2}/&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;and to access those properties in a component&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prop1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prop1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prop2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prop2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;However, sometimes it is easier to wrap all properties as a single object and pass it as a single property to the component.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;prop1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;prop2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value2&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;prop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will reduce the amount of arguments you need to pass to the component object.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;h1&gt;&lt;b&gt;Comments&lt;/b&gt;&lt;/h1&gt;
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://kaiji123-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Introduction To understand the use of properties , we first need to understand what a component in React framework.</summary></entry><entry><title type="html">Introduction to Python</title><link href="/jekyll/update/2021/07/20/Introduction-to-Python.html" rel="alternate" type="text/html" title="Introduction to Python" /><published>2021-07-20T00:00:00+02:00</published><updated>2021-07-20T00:00:00+02:00</updated><id>/jekyll/update/2021/07/20/Introduction-to-Python</id><content type="html" xml:base="/jekyll/update/2021/07/20/Introduction-to-Python.html">&lt;h2 id=&quot;what-is-python-&quot;&gt;What is Python ?&lt;/h2&gt;
 
 &lt;p&gt;As you know , Python is one of the most popular programming languages amongst Java, C++ and Javascript.It doesn’t compile the code you write ,like C or C++ ,but instead it interprets the code (which means that it has an interpreter).&lt;/p&gt;
 
@@ -16,25 +73,6 @@ Source&lt;/p&gt;
 
 &lt;h2 id=&quot;other-libraries&quot;&gt;Other libraries&lt;/h2&gt;
 &lt;p&gt;There are definitely many other libraries that have important use cases. PyTorch, which is a library that you use for creating, is very popular among people who are interested in mahcine learning. Django, for example, is another popular library that web developers use for creating backend for their website. There will be more libraries creating for making programmer’s task easier and this why Python has such a huge growrate these days.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1&gt;&lt;b&gt;Products&lt;/b&gt;&lt;/h1&gt;
-&lt;div&gt;
-    &lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B079JLY5M5/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B079JLY5M5&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=b90b1ed75f5062766c1dc2b6e7cb32f8&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;amp;MarketPlace=US&amp;amp;ASIN=B079JLY5M5&amp;amp;ServiceVersion=20070822&amp;amp;ID=AsinImage&amp;amp;WS=1&amp;amp;Format=_SL250_&amp;amp;tag=kaijeez-20&quot; /&gt;&lt;/a&gt;
-    &lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B079JLY5M5/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B079JLY5M5&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=ff2b9ae38b6a993a6b82029c6a9a45ec&quot;&gt;Logitech MK270 Wireless Keyboard and Mouse Combo - Keyboard and Mouse Included, Long Battery Life&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B07S1RR3FR/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B07S1RR3FR&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=4b2187671bf793fbc1351413dcc5f2fa&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;amp;MarketPlace=US&amp;amp;ASIN=B07S1RR3FR&amp;amp;ServiceVersion=20070822&amp;amp;ID=AsinImage&amp;amp;WS=1&amp;amp;Format=_SL250_&amp;amp;tag=kaijeez-20&quot; /&gt;&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B07S1RR3FR/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B07S1RR3FR&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=7adb41f05789fe478d339fb7df6887ed&quot;&gt;One by Wacom Student drawing tablet for Windows PC, Mac and certified Works With Chromebook&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B09761XY92/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B09761XY92&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=dcf847f5342828f09dc94b0c1be53e8d&quot;&gt;PS5 - Sony Playstation 5 Digital Edition Gaming Console + Wireless Controller - x86-64-AMD Ryzen Zen 8-Core, 16GB GDDR6, 825GB SSD, 120Hz 8K Output, HDR 4K TV Gaming - BROAGE 500GB External HD&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B09761XY92/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B09761XY92&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=26ef49b081f4d52d860e0dea77512e3c&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;amp;MarketPlace=US&amp;amp;ASIN=B09761XY92&amp;amp;ServiceVersion=20070822&amp;amp;ID=AsinImage&amp;amp;WS=1&amp;amp;Format=_SL250_&amp;amp;tag=kaijeez-20&quot; /&gt;&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B09761XY92/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B09761XY92&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=dcf847f5342828f09dc94b0c1be53e8d&quot;&gt;PS5 - Sony Playstation 5 Digital Edition Gaming Console + Wireless Controller - x86-64-AMD Ryzen Zen 8-Core, 16GB GDDR6, 825GB SSD, 120Hz 8K Output, HDR 4K TV Gaming - BROAGE 500GB External HD&lt;/a&gt;
-&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
@@ -114,24 +152,6 @@ Source&lt;/p&gt;
 &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;which is the concatenation of two buffers.&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;h1&gt;&lt;b&gt;Products&lt;/b&gt;&lt;/h1&gt;
-&lt;div&gt;
-    &lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B079JLY5M5/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B079JLY5M5&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=b90b1ed75f5062766c1dc2b6e7cb32f8&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;amp;MarketPlace=US&amp;amp;ASIN=B079JLY5M5&amp;amp;ServiceVersion=20070822&amp;amp;ID=AsinImage&amp;amp;WS=1&amp;amp;Format=_SL250_&amp;amp;tag=kaijeez-20&quot; /&gt;&lt;/a&gt;
-    &lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B079JLY5M5/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B079JLY5M5&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=ff2b9ae38b6a993a6b82029c6a9a45ec&quot;&gt;Logitech MK270 Wireless Keyboard and Mouse Combo - Keyboard and Mouse Included, Long Battery Life&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B07S1RR3FR/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B07S1RR3FR&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=4b2187671bf793fbc1351413dcc5f2fa&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;amp;MarketPlace=US&amp;amp;ASIN=B07S1RR3FR&amp;amp;ServiceVersion=20070822&amp;amp;ID=AsinImage&amp;amp;WS=1&amp;amp;Format=_SL250_&amp;amp;tag=kaijeez-20&quot; /&gt;&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B07S1RR3FR/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B07S1RR3FR&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=7adb41f05789fe478d339fb7df6887ed&quot;&gt;One by Wacom Student drawing tablet for Windows PC, Mac and certified Works With Chromebook&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B09761XY92/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B09761XY92&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=dcf847f5342828f09dc94b0c1be53e8d&quot;&gt;PS5 - Sony Playstation 5 Digital Edition Gaming Console + Wireless Controller - x86-64-AMD Ryzen Zen 8-Core, 16GB GDDR6, 825GB SSD, 120Hz 8K Output, HDR 4K TV Gaming - BROAGE 500GB External HD&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B09761XY92/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B09761XY92&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=26ef49b081f4d52d860e0dea77512e3c&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;amp;MarketPlace=US&amp;amp;ASIN=B09761XY92&amp;amp;ServiceVersion=20070822&amp;amp;ID=AsinImage&amp;amp;WS=1&amp;amp;Format=_SL250_&amp;amp;tag=kaijeez-20&quot; /&gt;&lt;/a&gt;
-&lt;br /&gt;
-&lt;a target=&quot;_blank&quot; href=&quot;https://www.amazon.com/gp/product/B09761XY92/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B09761XY92&amp;amp;linkCode=as2&amp;amp;tag=kaijeez-20&amp;amp;linkId=dcf847f5342828f09dc94b0c1be53e8d&quot;&gt;PS5 - Sony Playstation 5 Digital Edition Gaming Console + Wireless Controller - x86-64-AMD Ryzen Zen 8-Core, 16GB GDDR6, 825GB SSD, 120Hz 8K Output, HDR 4K TV Gaming - BROAGE 500GB External HD&lt;/a&gt;
-&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
